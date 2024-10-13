@@ -1,9 +1,12 @@
-export const colors = {
+import { Theme } from "../../types/themeTypes";
+
+export const colors: Theme = {
   primary: "#DC3545",
-  mainBg: "#F9F8F8",
+  mainBg: "#F4F5F7",
+  white: "#FFF",
 };
 
-export const abilitiesColor = {
+export const abilitiesColor: Theme = {
   노말: "#949495",
   격투: "#E09C40",
   비행: "#A2C3E7",
@@ -25,20 +28,21 @@ export const abilitiesColor = {
 };
 
 export const flexStyles = (
-  direction: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 0
+  direction = "row",
+  justifyContent = "center",
+  alignItems = "center",
+  gap = 0
 ): string => {
   return `
-  flex-direction: ${direction}
-  justify-content: ${justifyContent}
-  align-items: ${alignItems}
-  gap : ${gap}px,
+  display:flex;
+  flex-direction: ${direction};
+  justify-content: ${justifyContent};
+  align-items: ${alignItems};
+  gap:${gap}px;
   `;
 };
 
-export const mediaQueries = {
+export const mediaQueries: Theme = {
   mobile: "@media (max-width: 768px)",
   tablet: "@media (min-width: 769px) and (max-width: 1024px)",
   desktop: "@media (min-width: 1025px) and (max-width: 1200px)",
