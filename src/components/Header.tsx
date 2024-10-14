@@ -39,6 +39,12 @@ const HeaderContainer = styled.header`
     width: 140px;
   }
 
+  ${mediaQueries.desktop} {
+    .header-inner {
+      text-align: center;
+    }
+  }
+
   ${mediaQueries.tablet} {
     .header-inner {
       text-align: center;
