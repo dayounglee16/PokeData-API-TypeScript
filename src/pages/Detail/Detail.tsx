@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexStyles } from "../../assets/styles/theme";
+import { flexStyles, mediaQueries } from "../../assets/styles/theme";
 import PokemonInfo from "./components/PokemonInfo";
 
 const Detail = () => {
@@ -27,8 +27,6 @@ const DetailContainer = styled.div`
     ${flexStyles("row", "space-between")}
     width: 100%;
     max-width: 1000px;
-
-    margin: 0 auto;
     margin-top: 90px;
     padding: 30px;
     border-radius: 20px;
@@ -42,6 +40,34 @@ const DetailContainer = styled.div`
 
       .pokemon-image {
         width: 330px;
+      }
+    }
+  }
+
+  ${mediaQueries.tablet} {
+    .detail-inner {
+      ${flexStyles("column", "space-between")}
+      margin-top: 20px;
+
+      .pokemon-image-box {
+        ${flexStyles()}
+        width: 100%;
+        height: 400px;
+        background-color: #ccc;
+      }
+    }
+  }
+
+  ${mediaQueries.mobile} {
+    .detail-inner {
+      ${flexStyles("column", "space-between")}
+      margin-top: 20px;
+
+      .pokemon-image-box {
+        ${flexStyles()}
+        width: 100%;
+        height: 400px;
+        background-color: #ccc;
       }
     }
   }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexStyles } from "../../../assets/styles/theme";
+import { flexStyles, mediaQueries } from "../../../assets/styles/theme";
 const PokemonInfo = () => {
   return (
     <PokemonInfoContainer>
@@ -93,6 +93,40 @@ const PokemonInfoContainer = styled.div`
         color: #fff;
         font-size: 0.8rem;
         white-space: nowrap;
+      }
+    }
+  }
+
+  ${mediaQueries.tablet} {
+    width: 100%;
+
+    .pokemon-size {
+      ${flexStyles("row", "space-between", "center", 20)}
+      width: 100%;
+      .pokemon-weight-box {
+        ${flexStyles("row", "center", "center", 35)}
+        width: 45%;
+      }
+      .pokemon-height-box {
+        ${flexStyles("row", "center", "center", 35)}
+        width: 45%;
+      }
+    }
+  }
+
+  ${mediaQueries.mobile} {
+    width: 100%;
+
+    .pokemon-size {
+      ${flexStyles("column", "space-between", "center")}
+      width: 100%;
+      .pokemon-weight-box {
+        ${flexStyles("row", "center", "center", 35)}
+        width: 80%;
+      }
+      .pokemon-height-box {
+        ${flexStyles("row", "center", "center", 35)}
+        width: 80%;
       }
     }
   }
