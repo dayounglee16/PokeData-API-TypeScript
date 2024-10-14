@@ -1,12 +1,19 @@
 import styled from "styled-components";
-import { colors } from "../assets/styles/theme";
+import { colors, mediaQueries } from "../assets/styles/theme";
 import logo from "../assets/images/logo/main_logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
       <div className="header-inner">
-        <img className="main-logo" src={logo} alt="상단 포켓몬 메인 로고" />
+        <img
+          className="main-logo"
+          src={logo}
+          alt="상단 포켓몬 메인 로고"
+          onClick={() => navigate("/")}
+        />
       </div>
     </HeaderContainer>
   );
@@ -30,5 +37,17 @@ const HeaderContainer = styled.header`
   .main-logo {
     cursor: pointer;
     width: 140px;
+  }
+
+  ${mediaQueries.tablet} {
+    .header-inner {
+      text-align: center;
+    }
+  }
+
+  ${mediaQueries.mobile} {
+    .header-inner {
+      text-align: center;
+    }
   }
 `;

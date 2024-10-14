@@ -43,7 +43,9 @@ export const flexStyles = (
 };
 
 export const mediaQueries: Theme = {
-  mobile: "@media (max-width: 768px)",
-  tablet: "@media (min-width: 769px) and (max-width: 1024px)",
-  desktop: "@media (min-width: 1025px) and (max-width: 1200px)",
+  mobile: "@media (max-width: 650px)",
+  tablet: "@media (min-width: 651px) and (max-width: 1024px)",
+  desktop: "@media (min-width: 1025px) and (max-width: 1220px)",
+  largeDesktop: "@media (min-width: 1221px) and (max-width: 1440px)",
+  extraLargeDesktop: "@media (min-width: 1441px)",
 };
