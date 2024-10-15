@@ -67,11 +67,12 @@ const PokemonInfoContainer = styled.div`
     }
   }
   .pokemon-size {
-    ${flexStyles("row", "center", "center", 10)}
+    ${flexStyles("row", "space-between", "center")}
     width: 100%;
     .pokemon-weight-box {
       ${flexStyles("column", "center", "center", 20)}
-      padding: 15px 50px;
+      width: 48%;
+      padding: 10px 0;
       border: 1px solid #eee;
       .pokemon-weight {
         padding: 5px 20px;
@@ -84,7 +85,8 @@ const PokemonInfoContainer = styled.div`
     }
     .pokemon-height-box {
       ${flexStyles("column", "center", "center", 20)}
-      padding: 15px 50px;
+      width: 48%;
+      padding: 10px 0;
       border: 1px solid #eee;
       .pokemon-height {
         padding: 5px 20px;

@@ -18,7 +18,7 @@ const Detail = () => {
 export default Detail;
 
 const DetailContainer = styled.div`
-  ${flexStyles("row", "center", "flex-start")}
+  ${flexStyles("row", "center", "center")}
   width: 100%;
   min-height: calc(100dvh - 70px);
   padding: 20px;
@@ -27,7 +27,6 @@ const DetailContainer = styled.div`
     ${flexStyles("row", "space-between")}
     width: 100%;
     max-width: 1000px;
-    margin-top: 90px;
     padding: 30px;
     border-radius: 20px;
     border: 2px solid #da343c54;

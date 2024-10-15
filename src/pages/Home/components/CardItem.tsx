@@ -1,9 +1,16 @@
 import styled from "styled-components";
-import { PokemonItem } from "./CardList";
-import { flexStyles, mediaQueries } from "../../../assets/styles/theme";
+import {
+  flexStyles,
+  mediaQueries,
+  abilitiesColor,
+} from "../../../assets/styles/theme";
 import { useNavigate } from "react-router-dom";
+import {
+  CardItemProps,
+  PokemonAbilityItemProps,
+} from "../../../types/pokemonTypes";
 
-const CardItem = ({ pokemonItem }: { pokemonItem: PokemonItem }) => {
+const CardItem = ({ pokemonItem, pokemonTypes }: CardItemProps) => {
   const navigate = useNavigate();
 
   return (
@@ -11,12 +18,17 @@ const CardItem = ({ pokemonItem }: { pokemonItem: PokemonItem }) => {
       <div className="pokemon-id-box">
         <span className="pokemon-id"># {pokemonItem.id} </span>
       </div>
-      <div className="pokemon-image">이미지</div>
-      <h3 className="pokemon-name">포켓몬이름</h3>
-      <ul className="pokemon-ability-box">
-        <li>능력 1</li>
-        <li>능력 2</li>
-      </ul>
+      <img className="pokemon-image" src={pokemonItem.imgURL} width="20%" />
+      <h3 className="pokemon-name">{pokemonItem.name}</h3>
+      <div className="pokemon-ability-box">
+        {pokemonTypes.map((typeitem) => {
+          return (
+            <PokemonAbilityItem key={typeitem} $typeitem={typeitem}>
+              {typeitem}
+            </PokemonAbilityItem>
+          );
+        })}
+      </div>
     </CardItemContainer>
   );
 };
@@ -24,13 +36,14 @@ const CardItem = ({ pokemonItem }: { pokemonItem: PokemonItem }) => {
 export default CardItem;
 
 const CardItemContainer = styled.div`
-  ${flexStyles("column", "space-between", "center", 25)}
+  ${flexStyles("column", "space-between", "center", 10)}
   width: 100%;
+  aspect-ratio: 4/3;
   max-width: 24%;
   border-radius: 3px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 50px;
-  padding: 15px;
+  padding: 10px 12px;
   cursor: pointer;
 
   &:hover {
@@ -65,13 +78,14 @@ const CardItemContainer = styled.div`
 
   .pokemon-name {
     font-weight: bold;
+    white-space: nowrap;
   }
 
   .pokemon-ability-box {
-    ${flexStyles("row", "center", "center", 10)}
+    ${flexStyles("row", "space-between", "center", 10)}
     width: 100%;
     text-align: center;
-    margin: 5px 0;
+    margin: 7px 0;
   }
 
   ${mediaQueries.desktop} {
@@ -84,5 +98,29 @@ const CardItemContainer = styled.div`
 
   ${mediaQueries.mobile} {
     max-width: 100%;
+  }
+`;
+
+const PokemonAbilityItem = styled.div<PokemonAbilityItemProps>`
+  ${flexStyles()}
+  width: 100%;
+  background-color: ${(props) => abilitiesColor[props.$typeitem]};
+  color: ${({ theme }) => theme.white};
+  padding: 3px 0;
+  border-radius: 5px;
+  font-size: 0.8rem;
+
+  ${mediaQueries.desktop} {
+    padding: 5px 0;
+  }
+
+  ${mediaQueries.tablet} {
+    padding: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  ${mediaQueries.mobile} {
+    padding: 5 px 0;
+    font-size: 0.9rem;
   }
 `;
